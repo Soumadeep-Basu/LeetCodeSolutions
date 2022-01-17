@@ -5,8 +5,7 @@ class Solution(object):
         :type magazine: str
         :rtype: bool
         """
-        
-        visited=[]
+  
         
         note = list(ransomNote)
         mag = list(magazine)
