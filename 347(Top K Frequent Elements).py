@@ -1,30 +1,37 @@
-class Solution:
+
+            
+            
+            
+            
+        class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         
-        #define dict to store the occurances of each word
-        occurance = {}
+        LookUp = {}
         
-        #count the number of occurances
-        for i in nums:
-            if i in occurance:
-                occurance[i]+= 1
+        Answer = []
+        
+        for num in nums:
+            if num in LookUp:
+                LookUp[num]+=1
             else:
-                occurance[i] = 1
+                LookUp[num] = 1
+        
+                
+        for i in range(k):
+            max_c = 0
+            max_ele = 0
+            
+            for k in LookUp.keys():
+                if LookUp[k] > max_c:
+                    max_c = LookUp[k]
+                    max_ele = k
+            
+            Answer.append(max_ele)
+            
+            LookUp.pop(max_ele)
+            
+        return Answer
+                
                 
         
-        #sort the dict, and rearrange elements
-        occurance = sorted(occurance.items(), key = lambda x : x[1] , reverse = True)
-        
-        #define the result
-        resultList = []
-        
-        #Append first k elements
-        for i in range(k):
-            resultList.append(occurance[i][0])
-            
-        return resultList
-            
-            
-            
-            
         
